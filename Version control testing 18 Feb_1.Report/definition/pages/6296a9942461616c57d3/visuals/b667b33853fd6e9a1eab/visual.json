@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json",
+  "name": "b667b33853fd6e9a1eab",
+  "position": {
+    "x": 314.23775942645608,
+    "y": 68.610864503593035,
+    "z": 0,
+    "height": 437.7373155329235,
+    "width": 499.48709358615724,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "earthquake_events_gold"
+                    }
+                  },
+                  "Property": "country_code"
+                }
+              },
+              "queryRef": "earthquake_events_gold.country_code",
+              "nativeQueryRef": "country_code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "earthquake_events_gold"
+                    }
+                  },
+                  "Property": "place_description"
+                }
+              },
+              "queryRef": "earthquake_events_gold.place_description",
+              "nativeQueryRef": "place_description"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
