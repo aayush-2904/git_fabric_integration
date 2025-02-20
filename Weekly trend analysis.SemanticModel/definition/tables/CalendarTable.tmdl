@@ -1,0 +1,129 @@
+table CalendarTable
+	lineageTag: 35ff8ee8-72da-48bd-8112-17eb23e616d9
+
+	measure MaskedCardNumber = ```
+			"****" & MAX(CalendarTable[Year])
+			
+			```
+		lineageTag: 8121b3e5-fc8b-4242-8165-3b76d152bd7c
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2ea0cec5-d164-4446-be84-7dd02388bc37
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 27fe8e52-5cf5-4647-b23c-5178f79ed452
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 33ed9d68-2c48-4bef-8f0d-21198d9a8533
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 5f21071b-4ba5-43d9-955a-b581268d95fe
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Month Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 65062f4e-1bcc-444e-b174-ac148a18bcb8
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 12105ab7-9a9f-41f4-b17a-52cc549decbd
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Week Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c40b2d8-ce04-4804-a8e7-65cb82028a2f
+		summarizeBy: sum
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Day of Week]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 08b95136-a297-432a-858b-766958fe05ae
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Day Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Ending'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7ae1b493-e18c-4136-af35-44e2c177cc40
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Week Ending]
+
+		variation Variation
+			isDefault
+			relationship: c421c651-cbed-4d22-ac58-5b587efbaf0f
+			defaultHierarchy: LocalDateTable_eb5a6901-3000-4def-86d9-03df904b8ef5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CalendarTable = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(MIN(Weekly_Productions[Date]), MAX(Weekly_Productions[Date])),
+				    "Year", YEAR([Date]),
+				    "Month Number", MONTH([Date]),
+				    "Month Name", FORMAT([Date], "MMMM"),
+				    "Quarter", QUARTER([Date]),
+				    "Week Number", WEEKNUM([Date], 21),
+				    "Week Ending", [Date] + (6 - WEEKDAY([Date], 1)),
+				    "Day of Week", WEEKDAY([Date], 2),
+				    "Day Name", FORMAT([Date], "DDDD")
+				)
+
+	annotation PBI_Id = 1c077626e7844c15a3c2b111575e27f0
+

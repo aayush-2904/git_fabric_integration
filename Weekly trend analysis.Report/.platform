@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Weekly trend analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "53a79766-3ab4-4b46-9c26-f69d4b02407c"
+  }
+}
