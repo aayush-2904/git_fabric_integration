@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json",
+  "name": "abd124ef05dcc055bae1",
+  "position": {
+    "x": 386.86567164179104,
+    "y": 78.805970149253724,
+    "z": 0,
+    "height": 527.46268656716416,
+    "width": 290.14925373134326,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CalendarTable"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "Sum(CalendarTable.Year)",
+              "nativeQueryRef": "Year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CalendarTable"
+                    }
+                  },
+                  "Property": "MaskedCardNumber"
+                }
+              },
+              "queryRef": "CalendarTable.MaskedCardNumber",
+              "nativeQueryRef": "MaskedCardNumber"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CalendarTable"
+                  }
+                },
+                "Property": "MaskedCardNumber"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
