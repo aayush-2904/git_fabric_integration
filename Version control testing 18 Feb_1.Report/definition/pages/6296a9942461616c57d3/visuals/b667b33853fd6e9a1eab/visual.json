@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.3.0/schema.json",
   "name": "b667b33853fd6e9a1eab",
   "position": {
-    "x": 130.36064255682675,
-    "y": 53.516474312802565,
+    "x": 314.23775942645608,
+    "y": 68.610864503593035,
     "z": 0,
     "height": 437.7373155329235,
-    "width": 577.70347912025329,
+    "width": 499.48709358615724,
     "tabOrder": 0
   },
   "visual": {
@@ -42,20 +42,6 @@
               },
               "queryRef": "earthquake_events_gold.place_description",
               "nativeQueryRef": "place_description"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "earthquake_events_gold"
-                    }
-                  },
-                  "Property": "magType"
-                }
-              },
-              "queryRef": "earthquake_events_gold.magType",
-              "nativeQueryRef": "magType"
             }
           ]
         }
