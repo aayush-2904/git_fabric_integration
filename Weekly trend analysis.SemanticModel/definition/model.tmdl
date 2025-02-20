@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Weekly_Productions","Measure"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.137.1102.0 (24.10)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Weekly_Productions
+ref table DateTableTemplate_ccae939f-3681-4701-99f7-591a1ee024c7
+ref table LocalDateTable_03babbdb-0c71-443f-baa7-e666cfda060f
+ref table Measure
+ref table YearTable
+ref table LocalDateTable_44abb904-9c45-45a4-81e7-8ae19f636035
+ref table CalendarTable
+ref table LocalDateTable_eb5a6901-3000-4def-86d9-03df904b8ef5
+
+ref cultureInfo en-US
+
